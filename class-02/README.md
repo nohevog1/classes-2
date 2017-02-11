@@ -29,7 +29,7 @@ After you click the link, open up the JavaScript console of your browser.  Type 
 
 3. What's the magnitude of the biggest earthquake in ````quakes.json````?  There are several ways to answer this question. I'll show you how to do it quickly with [D3-array](https://github.com/d3/d3-array).
 
-4. What's the magnitude of the oldest earthquake in ````quakes.json````?
+4. What's the magnitude of the oldest earthquake in ````quakes.json````? (ditto regarding [D3-array](https://github.com/d3/d3-array))
 
 5. When did the oldest earthquake in ````quakes.json```` occur?  (google and stackoverflow are your friends for this one)
 
