@@ -17,7 +17,6 @@ Answer the following questions related to the Oklahoma earthquake demo that we l
 
     <http://umbcvis.github.io/classes/class-02>
 
-After you click the link, open up the JavaScript console of your browser.  Type the word ````data```` and hit return. You should see a GeoJSON ````object```` that contains the earthquake data.  Look back at ````index.html```` to see where it comes from. To answer the questions below, you'll want to inspect the contents of the GeoJSON object and check the [GeoJSON specification](http://geojson.org).
+After you click the link, open up the JavaScript console of your browser.  Type the word ````data```` and hit return. You should see a GeoJSON ````object```` that contains the earthquake data. You can inspect and manipulate (with JavaScript) the contents of the object in the console.  Look back at ````index.html```` to see where it comes from. To answer the questions below, you may want to refer to the [GeoJSON specification](http://geojson.org).
 
-### Question #1
-
+1. How many earthquakes are there in the file ````quakes.json````?
