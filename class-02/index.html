@@ -57,8 +57,9 @@ var base = "https://gist.githubusercontent.com/pbogden/935370a5272acff2618b/raw/
 var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Read and plot the earthquake data
-//d3.json(base + "quakes.json", plotQuakes);
-d3.json(usgs, plotQuakes);
+var url = base + "quakes.json";
+d3.json(url, plotQuakes);
+//d3.json(usgs, plotQuakes);
 
 // Read and plot the state & county boundaries  
 d3.json(base + "ok.json", plotState);
