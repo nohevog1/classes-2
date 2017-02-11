@@ -11,7 +11,7 @@ Look at the following tutorials to familiarize yourself with JavaScript objects,
 
 * <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array> -- Arrays
 
-Whenever you're ready, answer the questions below. The best way to complete the assignment is probably to go back and forth between the questions and the background materials.
+Whenever you're ready, answer the questions below. That said, if you're feeling brave, the best way to complete the assignment is probably to look at the questions first, go as far as you can, then go back and forth between the questions and the background materials.
 
 ## Questions
 
@@ -40,6 +40,8 @@ After you click the link, open up the JavaScript console of your browser.  Type 
     2. How many were there in a bounding box that includes California?
     
     3. How many were there in Oklahoma?
+    
+# Fin
     
     
 
