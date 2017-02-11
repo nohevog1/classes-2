@@ -25,15 +25,15 @@ After you click the link, open up the JavaScript console of your browser.  Type 
 
 1. How many earthquakes are there in the file ````quakes.json````?
 
-2. How many earthquakes of magnitude 2.5 or greater are there in ````quakes.json````?  (look at index.html for a hint)
+2. How many earthquakes of magnitude 2.5 or greater are there in ````quakes.json````?  Look at index.html for a hint.
 
 3. What's the magnitude of the biggest earthquake in ````quakes.json````?  There are several ways to answer this question. I'll show you how to do it quickly with [D3-array](https://github.com/d3/d3-array).
 
-4. What's the magnitude of the oldest earthquake in ````quakes.json````? (ditto regarding [D3-array](https://github.com/d3/d3-array))
+4. What's the magnitude of the oldest earthquake in ````quakes.json````? Ditto regarding [D3-array](https://github.com/d3/d3-array).
 
-5. When did the oldest earthquake in ````quakes.json```` occur?  (google and stackoverflow are your friends for this one)
+5. When did the oldest earthquake in ````quakes.json```` occur?  Google and stackoverflow are your friends for this one.
 
-6. Make your own copy of index.html. Change the URL for the earthquake data source to the real-time data feed from the usgs.  I already put the url for the data feed in a variable called ````usgs````.  That URL will give you all the earthquakes for the last week.
+6. Make your own copy of index.html. Change the URL for the earthquake data source to the real-time data feed from the USGS.  I already put a URL for the data feed in a variable called ````usgs````. That URL will give you all the earthquakes for the last week.
 
     1. How many earthquakes were there in the last week?
     
