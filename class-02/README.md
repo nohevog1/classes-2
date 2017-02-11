@@ -1,5 +1,7 @@
 
-Assignment:  Look at the following tutorials to familiarize yourself with JavaScript objects and functions.  
+####Assignment
+
+Look at the following tutorials to familiarize yourself with JavaScript objects and functions.  
 
 * <http://www.w3schools.com/js/js_object_definition.asp> -- Objects
 
