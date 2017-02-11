@@ -15,7 +15,7 @@ Whenever you're ready, answer the questions below. The best way to complete the 
 
 ## Questions
 
-Be prepared to answer the questions below that are related to the Oklahoma earthquake demo that we looked at in class. We'll work through a similar set of questions in the next class.
+Answer the questions below. They're related to the Oklahoma earthquake demo that we looked at in class. We'll work through a similar set of questions in the next class.
 
 Click this link to see index.html in your browser...
 
