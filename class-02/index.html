@@ -35,6 +35,7 @@ path.state {
 var width = 960;
 var height = 500;
 var smallest = 2.5; // threshold magnitude
+var data = null; // global variable
 
 // Set the map projection centered on Oklahoma
 var projection = d3.geo.albers()
@@ -60,8 +61,11 @@ d3.json(base + "quakes.json", plotQuakes);
 // Read and plot the state & county boundaries  
 d3.json(base + "ok.json", plotState);
 
-function plotQuakes(error, data) {
+function plotQuakes(error, json) {
   if (error) console.log(error);
+  
+  // Assign the json to a global so we can manipulate it in the console
+  data = json;
   
   // Filter the small earthquakes
   var features = data.features.filter(function(d) { return (+ d.properties.mag >= smallest) });
