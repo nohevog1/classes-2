@@ -25,7 +25,7 @@ After you click the link, open up the JavaScript console of your browser.  Type 
 
 1. How many earthquakes are there in the file ````quakes.json````?
 
-2. How many earthquakes of magnitude greater than 2.5 are there in ````quakes.json````?  (look at index.html for a hint)
+2. How many earthquakes of magnitude 2.5 or greater are there in ````quakes.json````?  (look at index.html for a hint)
 
 3. What's the magnitude of the biggest earthquake in ````quakes.json````?  There are several ways to answer this question. I'll show you how to do it quickly with [D3-array](https://github.com/d3/d3-array).
 
