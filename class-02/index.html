@@ -35,29 +35,37 @@ path.state {
 var width = 960;
 var height = 500;
 var smallest = 2.5; // threshold magnitude
+
 // Set the map projection centered on Oklahoma
 var projection = d3.geo.albers()
     .scale(7543)
     .translate([702, -186]);
+
 var path = d3.geo.path()
     .pointRadius(5)
     .projection(projection);
+
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
+
 var layer1 = svg.append("g");
 var layer2 = svg.append("g");
-  
-// Read and plot the earthquake data
+
 var base = "https://gist.githubusercontent.com/pbogden/935370a5272acff2618b/raw/f4d102d819066bb21a0021b4cbab6502e86bf587/";
-d3.json(base + "quakes.json", plotQuakes)
-// Read and plot the state & county boundaries
-  
-d3.json(base + "ok.json", plotState)
+
+// Read and plot the earthquake data
+d3.json(base + "quakes.json", plotQuakes);
+
+// Read and plot the state & county boundaries  
+d3.json(base + "ok.json", plotState);
+
 function plotQuakes(error, data) {
   if (error) console.log(error);
+  
   // Filter the small earthquakes
   var features = data.features.filter(function(d) { return (+ d.properties.mag >= smallest) });
+
   // Plot the earthquakes
   layer2.selectAll("path.quake")
       .data(features)
@@ -65,6 +73,7 @@ function plotQuakes(error, data) {
       .attr("class", "quake")
       .attr("d", path)
 }
+
 function plotState(error, ok) {
   if (error) console.log(error);
   
