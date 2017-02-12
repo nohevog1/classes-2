@@ -21,6 +21,8 @@ Click this link to see index.html in your browser...
 
 <http://umbcvis.github.io/classes/class-02>
 
+<a class="jsbin-embed" href="https://jsbin.com/subifidako/embed?html,output">class-02 demo on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?3.41.0"></script>
+
 After you click the link, open up the JavaScript console of your browser.  Type the word ````data```` and hit return. You should see a GeoJSON ````object```` that contains the earthquake data. You can inspect and manipulate (with JavaScript) the contents of the object in the console.  Look back at ````index.html```` to see where it comes from. You may want to refer to the [GeoJSON specification](http://geojson.org) and the [USGS API documentation](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
 
 1. How many earthquakes are there in the file ````quakes.json````?  Answer: 4618
