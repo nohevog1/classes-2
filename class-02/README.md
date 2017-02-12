@@ -23,7 +23,7 @@ Click this link to see index.html in your browser...
 
 After you click the link, open up the JavaScript console of your browser.  Type the word ````data```` and hit return. You should see a GeoJSON ````object```` that contains the earthquake data. You can inspect and manipulate (with JavaScript) the contents of the object in the console.  Look back at ````index.html```` to see where it comes from. You may want to refer to the [GeoJSON specification](http://geojson.org) and the [USGS API documentation](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
 
-1. How many earthquakes are there in the file ````quakes.json````?
+1. How many earthquakes are there in the file ````quakes.json````?  Answer: 4618
 
 2. How many earthquakes of magnitude 2.5 or greater are there in ````quakes.json````?  Look at index.html for a hint.
 
