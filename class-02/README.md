@@ -28,13 +28,13 @@ After you click the link, open up the JavaScript console of your browser.  Type 
 2. How many earthquakes of magnitude 2.5 or greater are there in ````quakes.json````?  Look at index.html for a hint.
 
         // Micro tutorial: Array as the property of an object
-        var obj = { a: 3, b: [5, 11, 7, 42] };  // variable "obj" is an object with two properties
+        var obj = { a: 3, b: [5, 11, 7, 42] };  // variable "obj" is an object with two properties: "a" and "b"
         var arr = obj.b;                        // variable "arr" is the array: [5, 11, 7, 42]
         console.log( arr );                     // print "arr" on the console
         
         // Micro tutorial: Filter an array (with an "anonymous" function)
         var fil = arr.filter(function(d) { return (d > 10); });   // create a new array with elements larger than 10
-        console.log( fil );     // print variable "fil", the filtered array, to the console: [11, 42]
+        console.log( fil );     // print the variable "fil", the filtered array, to the console: [11, 42]
 
 3. What's the magnitude of the biggest earthquake in ````quakes.json````?  There are several ways to answer this question. I'll show you how to do it quickly with [D3-array](https://github.com/d3/d3-array).
 
