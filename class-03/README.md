@@ -8,3 +8,7 @@
 # Simplified demo for this class
 
 * the demo: https://umbcvis.github.io/classes/class-03/
+
+* d3 reference docs: https://github.com/d3/d3/blob/master/API.md
+
+* ds-array reference docs: https://github.com/d3/d3/blob/master/API.md
