@@ -9,6 +9,8 @@
 
 * the demo: https://umbcvis.github.io/classes/class-03/
 
-* d3 reference docs: https://github.com/d3/d3/blob/master/API.md
+* d3 API reference docs: https://github.com/d3/d3/blob/master/API.md
 
-* d3-array reference docs: https://github.com/d3/d3-array
+* d3-array: https://github.com/d3/d3-array
+
+* GeoJSON: http://geojson.org
