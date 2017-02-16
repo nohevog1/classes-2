@@ -14,3 +14,7 @@
 * d3-array: https://github.com/d3/d3-array
 
 * GeoJSON: http://geojson.org
+
+# US States
+
+* https://umbcvis.github.io/classes/class-03/states.html
