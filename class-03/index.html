@@ -13,7 +13,7 @@
 
 var data; // This is a global -- we'll talk about it in class.
 
-var url = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
+var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson";
 
 d3.json(url, function(error, quakes) {
   if (error) console.log(error);
