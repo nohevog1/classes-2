@@ -18,3 +18,6 @@
 # US States
 
 * https://umbcvis.github.io/classes/class-03/states.html
+
+* topojson reference docs: https://github.com/topojson/topojson
+
