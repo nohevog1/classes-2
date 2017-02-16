@@ -11,4 +11,4 @@
 
 * d3 reference docs: https://github.com/d3/d3/blob/master/API.md
 
-* ds-array reference docs: https://github.com/d3/d3/blob/master/API.md
+* d3-array reference docs: https://github.com/d3/d3/blob/master/API.md
