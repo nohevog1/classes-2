@@ -1,7 +1,7 @@
 
 # The Oklahoma earthquake demo (from class 2)
 
-* the code: http://umbcvis.github.io/classes/tree/master/class-02
+* the code: http://github.com/umbcvis/classes/tree/master/class-02
 
 * the demo: https://umbcvis.github.io/classes/class-02/
 
