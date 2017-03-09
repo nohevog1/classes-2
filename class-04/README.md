@@ -23,28 +23,28 @@
    * Add a new "layer" -- a "g" element -- for drawing the earthquakes
    * Add the function that plots the earthquakes (on layer 2)
 
-        function plotQuakes(error, json) {
-          if (error) return console.log(error);
+            function plotQuakes(error, json) {
+              if (error) return console.log(error);
 
-          // Global variable, data, will be visible in the console
-          data = json;
+              // Global variable, data, will be visible in the console
+              data = json;
 
-          // Extract an array of feature objects, one for each earthquake
-          var features = json.features;
+              // Extract an array of feature objects, one for each earthquake
+              var features = json.features;
 
-          // Plot the earthquakes
-          layer2.selectAll("path.quake")
-              .data(features)
-            .enter().append("path")
-              .attr("class", "quake")
-              .attr("d", path)
-        }
+              // Plot the earthquakes
+              layer2.selectAll("path.quake")
+                  .data(features)
+                .enter().append("path")
+                  .attr("class", "quake")
+                  .attr("d", path)
+            }
 
    * Add the code to reads earthquakes and calls the function that plots them
 
-        // Read and plot the earthquake data
-        var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-        d3.json(usgs, plotQuakes);
+            // Read and plot the earthquake data
+            var usgs =     "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+            d3.json(usgs, plotQuakes);
 
 6. The final code is in this gist:
 
