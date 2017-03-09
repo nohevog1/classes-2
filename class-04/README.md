@@ -45,3 +45,7 @@
         // Read and plot the earthquake data
         var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
         d3.json(usgs, plotQuakes);
+
+6. The final code is in this gist:
+
+https://bl.ocks.org/pbogden/eb4cafea0a3087fc1c2219c153dd2c63
