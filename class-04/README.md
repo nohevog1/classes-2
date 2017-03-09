@@ -40,10 +40,10 @@
                   .attr("d", path)
             }
 
-   * Add the code to reads earthquakes and calls the function that plots them
+   * Add the code to reads the earthquakes and then calls the function that plots them
 
             // Read and plot the earthquake data
-            var usgs =     "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+            var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
             d3.json(usgs, plotQuakes);
 
 6. The final code is in this gist:
