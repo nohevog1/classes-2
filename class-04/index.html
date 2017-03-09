@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Class 4</title>
+<style>
+
+body {
+  position: absolute;
+  margin: 0px;
+}
+
+svg {
+  background-color: #4682b4;
+}
+
+.info {
+  font-family: sans-serif;
+  color: #000;
+  position: absolute;
+  top: 450px;
+  left: 800px;
+}
+
+path {
+  fill: #555555;
+  stroke: #eeeeee;
+}
+
+path.quake {
+  fill: crimson;
+}
+
+</style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+
+<body>
+<script>
+
+var width = 960, height = 500;
+
+var data;  // declare a global variable
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mousemove", mousemoved);
+
+var layer1 = svg.append('g')
+var layer2 = svg.append("g")
+
+var info = d3.select("body").append("div")
+    .attr("class", "info");
+
+var projection = d3.geoAlbersUsa();
+
+var path = d3.geoPath()
+    .projection(projection);
+
+// Read and plot the earthquake data
+var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+d3.json(usgs, plotQuakes);
+
+// Read and plot the state & county boundaries
+var url = "https://umbcvis.github.io/classes/class-03/us.json"
+d3.json(url, plotStates);
+
+function plotQuakes(error, json) {
+  if (error) return console.log(error);
+
+  // Global variable, data, will be visible in the console
+  data = json;
+
+  // Extract an array of feature objects, one for each earthquake
+  var features = json.features;
+
+  // Plot the earthquakes
+  layer2.selectAll("path.quake")
+      .data(features)
+    .enter().append("path")
+      .attr("class", "quake")
+      .attr("d", path)
+}
+
+function plotStates(error, json) {
+  if (error) return console.log(error);
+
+  // Create array of GeoJSON features -- this defines the global variable "data"
+  var features = topojson.feature(json, json.objects.us).features;
+
+  // Plot the features
+  layer1.selectAll("path")
+      .data(features)
+    .enter()
+      .append("path")
+      .attr("d", path);
+}
+
+function mousemoved() {
+  info.text(formatLocation(projection.invert(d3.mouse(this)), projection.scale()));
+}
+
+function formatLocation(p, k) {
+  var format = d3.format("." + Math.floor(Math.log(k) / 2 - 2) + "f");
+  return (p[1] < 0 ? format(-p[1]) + "°S" : format(p[1]) + "°N") + " "
+       + (p[0] < 0 ? format(-p[0]) + "°W" : format(p[0]) + "°E");
+}
+</script>
