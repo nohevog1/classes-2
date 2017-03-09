@@ -48,4 +48,4 @@
 
 6. The final code is in this gist:
 
-https://bl.ocks.org/pbogden/eb4cafea0a3087fc1c2219c153dd2c63
+    * https://bl.ocks.org/pbogden/eb4cafea0a3087fc1c2219c153dd2c63
