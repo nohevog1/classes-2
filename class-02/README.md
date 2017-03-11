@@ -1,10 +1,10 @@
 
 # Class #2
 
+Oklahoma earthquakes (there's a bunch).
+
 * block -- https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
-
 * code  -- https://github.com/umbcvis/classes/blob/master/class-02/index.html
-
 * demo -- http://umbcvis.github.io/classes/class-02
 
 ## What you'll learn
