@@ -9,11 +9,11 @@
 
 #### General layout of a page
 
-* HTML -- first line ```<!DOCTYPE html>````
-* CSS -- between ```<style>``` and ```</style>```
-* JavaScript -- between ```<script>``` and ```</script>```
-    * Use ```<script src='...'></script>``` to load external libraries
-    * Put this in the quotes for D3 version 4: <http://d3js.org/d3.v4.min.js>
+* HTML -- ```<!DOCTYPE html>``` tells the browser the document is HTML5
+* CSS -- appears between ```<style>``` and ```</style>```
+* JavaScript -- appears between ```<script>``` and ```</script>```
+    * Use ```<script src='...'></script>``` to load an external library
+    * Put this URL in the quotes to load D3 version 4: <http://d3js.org/d3.v4.min.js>
 
 #### Some basics about D3
 
@@ -36,7 +36,10 @@
 
 ### Additional References
 
-    * https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
-    * https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
-    * https://github.com/d3/d3 -- D3 github repository
-    * https://bl.ocks.org/ -- D3 blocks (examples)
+https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
+
+https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
+
+https://github.com/d3/d3 -- D3 github repository
+
+https://bl.ocks.org/ -- D3 blocks (examples)
