@@ -1,9 +1,11 @@
 
 # Assignment for Class #2
 
-* demo -- http://umbcvis.github.io/classes/class-02
+* block -- https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
 
-* the code  -- https://github.com/umbcvis/classes/blob/master/class-02/index.html
+* code  -- https://github.com/umbcvis/classes/blob/master/class-02/index.html
+
+* demo -- http://umbcvis.github.io/classes/class-02
 
 ## What you'll learn
 
