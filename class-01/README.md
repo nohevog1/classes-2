@@ -15,7 +15,7 @@
     * Use ```<script src='...'></script>``` to load external libraries
     * <http://d3js.org/d3.v4.min.js> is D3 version 4
 
-### D3 elements
+#### Some basics about D3
 
 * Scale (d3.scaleLinear)
 * Selecting an element (d3.select)
