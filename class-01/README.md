@@ -27,19 +27,13 @@
 # [Let's make a bar chart](https://bost.ocks.org/mike/bar/) by [Mike Bostock](http://bost.ocks.org)
 
 * the tutorial: https://bost.ocks.org/mike/bar/
-
-* block -- https://gist.github.com/pbogden/a458378543a2547fce654cef28d01dba
-
-* demo -- https://umbcvis.github.io/classes/class-01
-
-* the code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
+* block: https://gist.github.com/pbogden/a458378543a2547fce654cef28d01dba
+* demo: https://umbcvis.github.io/classes/class-01
+* code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
 
 ### Additional References
 
-https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
-
-https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
-
-https://github.com/d3/d3 -- D3 github repository
-
-https://bl.ocks.org/ -- D3 blocks (examples)
+* https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
+* https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
+* https://github.com/d3/d3 -- D3 github repository
+* https://bl.ocks.org/ -- D3 blocks (examples)
