@@ -7,7 +7,7 @@
 
 ## What you'll learn
 
-* Intro to JavaScript Array manipulation
+* Array manipulation in JavaScript
 * [JSON](http://www.json.org/)
     * [GeoJSON](http://geojson.org/)
     * [TopoJSON](https://github.com/topojson/topojson)
