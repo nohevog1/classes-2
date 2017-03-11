@@ -13,7 +13,7 @@
 * CSS -- between ```<style>``` and ```</style>```
 * JavaScript -- between ```<script>``` and ```</script>```
     * Use ```<script src='...'></script>``` to load external libraries
-    * <http://d3js.org/d3.v4.min.js> is D3 version 4
+    * Put this in the quotes for D3 version 4: <http://d3js.org/d3.v4.min.js>
 
 #### Some basics about D3
 
