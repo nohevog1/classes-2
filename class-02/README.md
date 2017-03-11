@@ -1,5 +1,5 @@
 
-# Assignment for Class #2
+# Class #2
 
 * block -- https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
 
@@ -29,7 +29,7 @@ Look at the following tutorials to familiarize yourself with JavaScript objects,
 
 Whenever you're ready, answer the questions below. That said, if you're feeling brave, the best way to complete the assignment is probably to look at the questions first, go as far as you can, then go back and forth between the questions and the background materials.
 
-## Questions
+## Assignment
 
 Answer the questions below. They're related to the Oklahoma earthquake demo that we looked at in class. We'll work through a similar set of questions in the next class.
 
