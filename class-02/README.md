@@ -1,9 +1,23 @@
 
 # Assignment for Class #2
 
-## Background 
+* demo -- http://umbcvis.github.io/classes/class-02
 
-Look at the following tutorials to familiarize yourself with JavaScript objects, functions and arrays. 
+* the code  -- https://github.com/umbcvis/classes/blob/master/class-02
+
+## What you'll learn
+
+* Intro to JavaScript Array manipulation
+* [JSON](http://www.json.org/)
+    * [GeoJSON](http://geojson.org/)
+    * [TopoJSON](https://github.com/topojson/topojson)
+* Reading TopojJSON data into a D3 visualization (d3.json)
+* Converting Topojson to GeoJSON
+* Plotting GeoJSON point data on a map
+
+## Background
+
+Look at the following tutorials to familiarize yourself with JavaScript objects, functions and arrays.
 
 * <http://www.w3schools.com/js/js_object_definition.asp> -- Objects
 
@@ -31,7 +45,7 @@ After you click the link, open up the JavaScript console of your browser.  Type 
         var obj = { a: 3, b: [5, 11, 7, 42] };  // variable "obj" is an object with two properties: "a" and "b"
         var arr = obj.b;                        // variable "arr" is the array: [5, 11, 7, 42]
         console.log( arr );                     // print "arr" on the console
-        
+
         // Micro tutorial: Filter an array (with an "anonymous" function)
         var fil = arr.filter(function(d) { return (d > 10); });   // create a new array with elements larger than 10
         console.log( fil );     // print the variable "fil", the filtered array, to the console: [11, 42]
@@ -45,16 +59,9 @@ After you click the link, open up the JavaScript console of your browser.  Type 
 6. Make your own copy of index.html. Change the URL for the earthquake data source to the real-time data feed from the USGS.  I already put a URL for the data feed in a variable called ````usgs````. That URL will give you all the earthquakes for the last week.
 
     1. How many earthquakes were there in the last week?
-    
+
     2. How many were there in a bounding box that includes California?
-    
+
     3. How many were there in Oklahoma?
-    
+
 # Fin
-    
-    
-
-
-
-
-
