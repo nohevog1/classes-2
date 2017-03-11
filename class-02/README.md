@@ -3,7 +3,7 @@
 
 * demo -- http://umbcvis.github.io/classes/class-02
 
-* the code  -- https://github.com/umbcvis/classes/blob/master/class-02
+* the code  -- https://github.com/umbcvis/classes/blob/master/class-02/index.html
 
 ## What you'll learn
 
