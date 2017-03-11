@@ -1,7 +1,7 @@
 
-# "Let's make a bar chart" by [Mike Bostock](http://bost.ocks.org)
+# [Let's make a bar chart](https://bost.ocks.org/mike/bar/) by [Mike Bostock](http://bost.ocks.org)
 
-* the tutorial: http://github.com/umbcvis/classes/tree/master/class-02
+* the tutorial: https://bost.ocks.org/mike/bar/
 
 * the demo: https://umbcvic.github.io/classes/class-01
 
