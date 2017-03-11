@@ -26,3 +26,5 @@
 * Additional References
 
     * https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
+    * https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
+    * https://github.com/d3/d3 -- D3 github repository
