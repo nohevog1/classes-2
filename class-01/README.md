@@ -1,5 +1,9 @@
 # Class #1
 
+block: http://bl.ocks.org/pbogden/a458378543a2547fce654cef28d01dba
+demo: https://umbcvis.github.io/classes/class-01
+code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
+
 ### What you'll learn
 
 #### JavaScript playgrounds
@@ -27,9 +31,8 @@
 # [Let's make a bar chart](https://bost.ocks.org/mike/bar/) by [Mike Bostock](http://bost.ocks.org)
 
 * tutorial: https://bost.ocks.org/mike/bar/
-* block: https://gist.github.com/pbogden/a458378543a2547fce654cef28d01dba
-* demo: https://umbcvis.github.io/classes/class-01
-* code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
+
+Note: The tutorial uses D3 version 3.  The code in this repo has been updated for D3 version 4.
 
 ### Additional References
 
