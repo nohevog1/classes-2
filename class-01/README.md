@@ -11,6 +11,8 @@
 
 # What you'll learn
 
+* JavaScript playgrounds
+    * http://github.com/umbcvis/fiddle
 * General layout of a page
     * HTML -- first line ```<!DOCTYPE html>````
     * CSS -- between ```<style>``` and ```</style>```
