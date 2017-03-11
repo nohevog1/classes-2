@@ -5,7 +5,7 @@
 
 * the demo: https://umbcvis.github.io/classes/class-01
 
-* the code (updated for D3 v4): https://umbcvic.github.io/classes/class-01
+* the code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
 
 # What you'll learn
 
