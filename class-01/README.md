@@ -4,8 +4,8 @@
 
 #### JavaScript playgrounds
 
-    * repo: http://github.com/umbcvis/fiddle
-    * demo: https://umbcvis.github.io/fiddle
+* repo: http://github.com/umbcvis/fiddle
+* demo: https://umbcvis.github.io/fiddle
 
 #### General layout of a page
 
