@@ -1,4 +1,7 @@
+
 # Class #1
+
+* https://bl.ocks.org/ -- D3 blocks (examples)
 
 * block: http://bl.ocks.org/pbogden/a458378543a2547fce654cef28d01dba
 * demo: https://umbcvis.github.io/classes/class-01
@@ -40,4 +43,3 @@ Note: The tutorial uses D3 version 3.  The code in this repo has been updated fo
 * https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
 * https://github.com/d3/d3/blob/master/API.md -- D3 API documentation
 * https://github.com/d3/d3 -- D3 github repository
-* https://bl.ocks.org/ -- D3 blocks (examples)
