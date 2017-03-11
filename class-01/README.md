@@ -1,8 +1,7 @@
 
 # Class #1
 
-* https://bl.ocks.org/ -- D3 blocks (examples)
-
+* https://bl.ocks.org/ -- D3 blocks (a bunch of inspirational examples)
 * block: http://bl.ocks.org/pbogden/a458378543a2547fce654cef28d01dba
 * demo: https://umbcvis.github.io/classes/class-01
 * code (updated for D3 v4): https://github.com/umbcvis/classes/blob/master/class-01/index.html
