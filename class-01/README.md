@@ -22,3 +22,7 @@
         * Enter selection (.enter)
         * Adding elements (.append)
         * Styling elements (.style)
+
+* Additional References
+
+    * https://bost.ocks.org/mike/selection/ -- "How Selections Work" by Mike Bostock
