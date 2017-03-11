@@ -3,7 +3,7 @@
 
 * the tutorial: https://bost.ocks.org/mike/bar/
 
-* the demo: https://umbcvic.github.io/classes/class-01
+* the demo: https://umbcvis.github.io/classes/class-01
 
 * the code (updated for D3 v4): https://umbcvic.github.io/classes/class-01
 
