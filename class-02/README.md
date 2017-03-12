@@ -1,7 +1,15 @@
 
 # Class #2
 
-Oklahoma earthquakes (there's a bunch).
+Earthquake demo (Oklahoma has a lot of earthquakes)
+
+### Let's make a bar chart II
+
+* Tutorial -- http://bost.ocks.org/mike/bar/
+* HTML block -- http://bl.ocks.org/mbostock/7322386 (HTML)
+* SVG block -- https://bl.ocks.org/mbostock/7341714 (SVG)
+
+### Earthquake demo
 
 * block -- https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
 * code  -- https://github.com/umbcvis/classes/blob/master/class-02/index.html
@@ -9,13 +17,14 @@ Oklahoma earthquakes (there's a bunch).
 
 ## What you'll learn
 
+* A little more HTML, SVG & CSS
 * Array manipulation in JavaScript
 * [JSON](http://www.json.org/)
     * [GeoJSON](http://geojson.org/)
     * [TopoJSON](https://github.com/topojson/topojson)
-* Reading TopojJSON data into a D3 visualization (d3.json)
-* Converting Topojson to GeoJSON
-* Plotting GeoJSON point data on a map
+* Read TopojJSON data into a D3 visualization (d3.json)
+* Convert Topojson to an array of GeoJSON point-data objects
+* Plot GeoJSON point data as circles on a map
 
 ## Background
 
