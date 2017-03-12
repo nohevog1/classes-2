@@ -1,23 +1,24 @@
+# Class #3
 
-# The Oklahoma earthquake demo (from class 2)
-
-* the code: http://github.com/umbcvis/classes/tree/master/class-02
-
-* the demo: https://umbcvis.github.io/classes/class-02/
-
-# Simplified demo for this class
+### Simplified demo for this class
 
 * the demo: https://umbcvis.github.io/classes/class-03/
-
 * d3 API reference docs: https://github.com/d3/d3/blob/master/API.md
-
 * d3-array: https://github.com/d3/d3-array
-
 * GeoJSON: http://geojson.org
 
-# US States
+### US States
 
 * https://umbcvis.github.io/classes/class-03/states.html
-
 * topojson reference docs: https://github.com/topojson/topojson
 
+# What you'll learn
+
+* More practice manipulating data in the developer console
+* Introduction to cartography in a browser
+
+### The Oklahoma earthquake demo (from last class)
+
+* the block: https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
+* the code: http://github.com/umbcvis/classes/tree/master/class-02
+* the demo: https://umbcvis.github.io/classes/class-02/
