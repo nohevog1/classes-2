@@ -27,11 +27,6 @@ Tutorial http://bost.ocks.org/mike/circles/ by Mike Bostock
 * More practice manipulating data in the developer console
 * Introduction to cartography in a browser
 
-### The Oklahoma earthquake demo (from last class)
-
-* the code: http://github.com/umbcvis/classes/tree/master/class-02
-* the demo: https://umbcvis.github.io/classes/class-02/
-
 # Assignment
 
 * Plot earthquakes for the entire US by combining:
