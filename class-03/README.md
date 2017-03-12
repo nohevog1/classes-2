@@ -12,11 +12,6 @@
 * https://umbcvis.github.io/classes/class-03/states.html
 * topojson reference docs: https://github.com/topojson/topojson
 
-# What you'll learn
-
-* More practice manipulating data in the developer console
-* Introduction to cartography in a browser
-
 # 3 Little Circles
 Tutorial http://bost.ocks.org/mike/circles/ by Mike Bostock
 
@@ -27,13 +22,20 @@ Tutorial http://bost.ocks.org/mike/circles/ by Mike Bostock
 * Entering, exiting & updating elements
 * https://github.com/mbostock/d3/wiki/API-Reference -- API reference
 
+# What you'll learn
+
+* More practice manipulating data in the developer console
+* Introduction to cartography in a browser
+
 ### The Oklahoma earthquake demo (from last class)
 
-* the block: https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
 * the code: http://github.com/umbcvis/classes/tree/master/class-02
 * the demo: https://umbcvis.github.io/classes/class-02/
 
 # Assignment
 
-* Combine the earthquakes from the USGS real-time data feed with the US States
+* Plot earthquakes for the entire US by combining:
+        * the US States (above)
+        * the earthquakes demo from last class
 * Experiment with the styling and compare results from the different feeds
+* Earthquake demo: https://bl.ocks.org/pbogden/6840da349acf3311932b8f0f3b252f5b
