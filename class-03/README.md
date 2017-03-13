@@ -2,7 +2,8 @@
 
 ### Simplified demo for this class
 
-* the demo: https://umbcvis.github.io/classes/class-03/
+* demo: https://umbcvis.github.io/classes/class-03/
+* code: https://umbcvis.github.io/classes/tree/master/class-03/index.html
 * d3 API reference docs: https://github.com/d3/d3/blob/master/API.md
 * d3-array: https://github.com/d3/d3-array
 * GeoJSON: http://geojson.org
