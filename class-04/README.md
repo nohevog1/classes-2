@@ -5,9 +5,9 @@
 
 The code for this demo started the "US States" demo from class 3.
 
-Five snippets of code were extracted from the "Oklahoma earthquakes" demo from class 2.
-They plot the earthquakes on top of the US States.
-These snippets have "NEW" comments in the code.
+The earthquakes are added by the 5 snippets of code that have been
+extracted from the "Oklahoma earthquakes" demo from class 2.
+These snippets are labeled with "NEW" comments in the code.
 
 ### US States (from class 3)
 
