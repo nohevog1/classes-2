@@ -3,10 +3,11 @@
 * demo: https://umbcvis.github.io/classes/class-04/
 * code: http://github.com/umbcvis/classes/tree/master/class-04/index.html
 
-The code for this demo started the "US States" demo.
+The code for this demo started the "US States" demo from class 3.
 
-Five snippets of code were extracted from the "Oklahoma earthquakes" demo, and added
-to plot the earthquakes on top of the US States. They have "NEW" comments in the code.
+Five snippets of code were extracted from the "Oklahoma earthquakes" demo from class 2.
+They plot the earthquakes on top of the US States.
+These snippets have "NEW" comments in the code.
 
 ### US States (from class 3)
 
