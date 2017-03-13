@@ -1,7 +1,7 @@
 
 # Class #5
 
-### US Earthquakes with labels
+### US Earthquakes (map with legend and labels)
 
 * Demo: https://umbcvis.github.io/classes/class-05
 * Code: https://github.com/umbcvis/classes/tree/master/class-05/index.html
