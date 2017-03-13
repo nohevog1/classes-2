@@ -7,7 +7,7 @@ The code for this demo started the "US States" demo from class 3.
 
 The earthquakes are added by the 5 snippets of code that have been
 extracted from the "Oklahoma earthquakes" demo from class 2.
-These snippets are labeled with "NEW" comments in the code.
+These snippets are labeled with "NEW" comments.
 
 ### US States (from class 3)
 
