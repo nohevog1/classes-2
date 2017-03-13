@@ -1,114 +1,116 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<title>Class 4</title>
 <style>
 
-.subunit.SCT { fill: #ddc; }
-.subunit.WLS { fill: #cdd; }
-.subunit.NIR { fill: #cdc; }
-.subunit.ENG { fill: #dcd; }
-
-.subunit.IRL,
-.subunit-label.IRL {
-  display: none;
+body {
+  position: absolute;
+  margin: 0px;
 }
 
-.subunit-boundary {
-  fill: none;
-  stroke: #777;
-  stroke-dasharray: 2,2;
-  stroke-linejoin: round;
+svg {
+  background-color: #4682b4;
 }
 
-.subunit-boundary.IRL {
-  stroke: #aaa;
+.info {
+  font-family: sans-serif;
+  color: #000;
+  position: absolute;
+  top: 450px;
+  left: 800px;
 }
 
-.subunit-label {
-  fill: #777;
-  fill-opacity: .5;
-  font-size: 20px;
-  font-weight: 300;
-  text-anchor: middle;
+path {
+  fill: #555555;
+  stroke: #aaaaaa;
 }
 
-.place,
-.place-label {
-  fill: #444;
-}
-
-text {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  pointer-events: none;
+/* NEW: style the earthquakes */
+path.quake {
+  fill: crimson;
 }
 
 </style>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+
 <body>
-<script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script></script>
-<script src="//d3js.org/topojson.v2.min.js"></script>
 <script>
 
-var width = 960,
-    height = 1160;
+var width = 960, height = 500;
 
-var projection = d3.geoAlbers()
-    .center([0, 55.4])
-    .rotate([4.4, 0])
-    .parallels([50, 60])
-    .scale(1200 * 5)
-    .translate([width / 2, height / 2]);
-
-var path = d3.geoPath()
-    .projection(projection)
-    .pointRadius(2);
+var data;  // declare a global variable
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .on("mousemove", mousemoved);
 
-d3.json("uk.json", function(error, uk) {
-  if (error) throw error;
-  var subunits = topojson.feature(uk, uk.objects.subunits),
-      places = topojson.feature(uk, uk.objects.places);
+// NEW: Add one layer (i.e., <g> element) each for states & earthquakes
+var layer1 = svg.append("g");
+var layer2 = svg.append("g");
 
-  svg.selectAll(".subunit")
-      .data(subunits.features)
-    .enter().append("path")
-      .attr("class", function(d) { return "subunit " + d.id; })
+// Add a <div> element to label the mouse position
+var info = d3.select("body").append("div")
+    .attr("class", "info");
+
+var projection = d3.geoAlbersUsa();
+
+var path = d3.geoPath()
+    .projection(projection);
+
+// NEW: Read the earthquake data and send it to function "plotQuakes"
+var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+// Topojson for US states
+var url = "https://umbcvis.github.io/classes/class-03/us.json"
+
+d3.json(url, plotStates);
+d3.json(usgs, plotQuakes);
+
+function plotStates(error, json) {
+
+  // Convert topojson to an Array of GeoJSON features
+  // This defines "data", a global variable that can be manipulated in the developer console
+  data = json.objects.us.geometries.map(function(d) { return topojson.feature(json, d); })
+
+  // Plot the features (states) -- one <path> element for each state
+  // NEW: Plot the states in a <g> element
+  layer1.selectAll("path")
+      .data(data)
+    .enter()
+      .append("path")
       .attr("d", path);
+}
 
-  svg.append("path")
-      .datum(topojson.mesh(uk, uk.objects.subunits, function(a, b) { return a !== b && a.id !== "IRL"; }))
+// NEW: Function that plots the earthquake data
+function plotQuakes(error, json) {
+  if (error) return console.log(error);
+
+  // Global variable, data, will be visible in the console
+  data = json;
+
+  // Extract an array of feature objects, one for each earthquake
+  var features = json.features;
+
+  // Plot the earthquakes
+  layer2.selectAll("path.quake")
+      .data(features)
+    .enter().append("path")
+      .attr("class", "quake")
       .attr("d", path)
-      .attr("class", "subunit-boundary");
+}
 
-  svg.append("path")
-      .datum(topojson.mesh(uk, uk.objects.subunits, function(a, b) { return a === b && a.id === "IRL"; }))
-      .attr("d", path)
-      .attr("class", "subunit-boundary IRL");
+// Label the geographic coordinates of the mouse position on the map
+function mousemoved() {
+  info.text(formatLocation(projection.invert(d3.mouse(this)), projection.scale()));
+}
 
-  svg.selectAll(".subunit-label")
-      .data(subunits.features)
-    .enter().append("text")
-      .attr("class", function(d) { return "subunit-label " + d.id; })
-      .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-      .attr("dy", ".35em")
-      .text(function(d) { return d.properties.name; });
-
-  svg.append("path")
-      .datum(places)
-      .attr("d", path)
-      .attr("class", "place");
-
-  svg.selectAll(".place-label")
-      .data(places.features)
-    .enter().append("text")
-      .attr("class", "place-label")
-      .attr("transform", function(d) { return "translate(" + projection(d.geometry.coordinates) + ")"; })
-      .attr("x", function(d) { return d.geometry.coordinates[0] > -1 ? 6 : -6; })
-      .attr("dy", ".35em")
-      .style("text-anchor", function(d) { return d.geometry.coordinates[0] > -1 ? "start" : "end"; })
-      .text(function(d) { return d.properties.name; });
-});
-
+// Format the text that will be displayed in the the <div> element on the map
+function formatLocation(p, k) {
+  var format = d3.format("." + Math.floor(Math.log(k) / 2 - 2) + "f");
+  return (p[1] < 0 ? format(-p[1]) + "°S" : format(p[1]) + "°N") + " "
+       + (p[0] < 0 ? format(-p[0]) + "°W" : format(p[0]) + "°E");
+}
 </script>
