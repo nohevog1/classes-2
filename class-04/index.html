@@ -22,9 +22,10 @@ svg {
 
 path {
   fill: #555555;
-  stroke: #eeeeee;
+  stroke: #aaaaaa;
 }
 
+/* NEW: style the earthquakes */
 path.quake {
   fill: crimson;
 }
@@ -46,9 +47,11 @@ var svg = d3.select("body").append("svg")
     .attr("height", height)
     .on("mousemove", mousemoved);
 
-var layer1 = svg.append('g')
-var layer2 = svg.append("g")
+// NEW: Add one layer (i.e., <g> element) each for states & earthquakes
+var layer1 = svg.append("g");
+var layer2 = svg.append("g");
 
+// Add a <div> element to label the mouse position
 var info = d3.select("body").append("div")
     .attr("class", "info");
 
@@ -57,14 +60,31 @@ var projection = d3.geoAlbersUsa();
 var path = d3.geoPath()
     .projection(projection);
 
-// Read and plot the earthquake data
+// NEW: Read the earthquake data and send it to function "plotQuakes"
 var usgs = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+// Topojson for US states
+var url = "https://umbcvis.github.io/classes/class-03/us.json"
+
+d3.json(url, plotStates);
 d3.json(usgs, plotQuakes);
 
-// Read and plot the state & county boundaries
-var url = "https://umbcvis.github.io/classes/class-03/us.json"
-d3.json(url, plotStates);
+function plotStates(error, json) {
 
+  // Convert topojson to an Array of GeoJSON features
+  // This defines "data", a global variable that can be manipulated in the developer console
+  data = json.objects.us.geometries.map(function(d) { return topojson.feature(json, d); })
+
+  // Plot the features (states) -- one <path> element for each state
+  // NEW: Plot the states in a <g> element
+  layer1.selectAll("path")
+      .data(data)
+    .enter()
+      .append("path")
+      .attr("d", path);
+}
+
+// NEW: Function that plots the earthquake data
 function plotQuakes(error, json) {
   if (error) return console.log(error);
 
@@ -82,24 +102,12 @@ function plotQuakes(error, json) {
       .attr("d", path)
 }
 
-function plotStates(error, json) {
-  if (error) return console.log(error);
-
-  // Create array of GeoJSON features -- this defines the global variable "data"
-  var features = topojson.feature(json, json.objects.us).features;
-
-  // Plot the features
-  layer1.selectAll("path")
-      .data(features)
-    .enter()
-      .append("path")
-      .attr("d", path);
-}
-
+// Label the geographic coordinates of the mouse position on the map
 function mousemoved() {
   info.text(formatLocation(projection.invert(d3.mouse(this)), projection.scale()));
 }
 
+// Format the text that will be displayed in the the <div> element on the map
 function formatLocation(p, k) {
   var format = d3.format("." + Math.floor(Math.log(k) / 2 - 2) + "f");
   return (p[1] < 0 ? format(-p[1]) + "°S" : format(p[1]) + "°N") + " "
