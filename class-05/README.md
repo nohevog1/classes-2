@@ -3,6 +3,8 @@
 
 ### US Earthquakes (map with legend and labels)
 
+This demo was created by modifying to the "US Earthquakes" demo from Class #4.
+
 * Demo: https://umbcvis.github.io/classes/class-05
 * Code: https://github.com/umbcvis/classes/tree/master/class-05/index.html
 
