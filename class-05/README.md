@@ -4,7 +4,7 @@
 ### US Earthquakes with labels
 
 * Demo: https://umbcvis.github.io/classes/class-05
-* Code: https://github.com/umbcvis/classes/blob/master/class-05/index.html
+* Code: https://github.com/umbcvis/classes/tree/master/class-05/index.html
 
 ### [Let's Make a Map](https://bost.ocks.org/mike/map/) by Mike Bostock
 
