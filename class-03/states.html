@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>class 3 - states</title>
+<title>Class 3 - states</title>
 <style>
 
 body {
@@ -37,11 +37,12 @@ var width = 960, height = 500;
 
 var data;  // declare a global variable
 
-var layer = d3.select("body").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .on("mousemove", mousemoved);
 
+// Add a <div> element to label the mouse position
 var info = d3.select("body").append("div")
     .attr("class", "info");
 
@@ -50,30 +51,31 @@ var projection = d3.geoAlbersUsa();
 var path = d3.geoPath()
     .projection(projection);
 
-// If you use this URL, you won't need your own copy of the data.
+// Topojson for US states
 var url = "https://umbcvis.github.io/classes/class-03/us.json"
 
 d3.json(url, plotStates);
 
 function plotStates(error, json) {
 
-  // Create array of GeoJSON features -- this defines the global variable "data"
+  // Convert topojson to an Array of GeoJSON features
+  // This defines "data", a global variable that can be manipulated in the developer console
   data = json.objects.us.geometries.map(function(d) { return topojson.feature(json, d); })
 
-  // Put your code here
-
-  // Plot the features
-  layer.selectAll("path")
+  // Plot the features (states) -- one <path> element for each state
+  svg.selectAll("path")
       .data(data)
     .enter()
       .append("path")
       .attr("d", path);
 }
 
+// Label the geographic coordinates of the mouse position on the map
 function mousemoved() {
   info.text(formatLocation(projection.invert(d3.mouse(this)), projection.scale()));
 }
 
+// Format the text that will be displayed in the the <div> element on the map
 function formatLocation(p, k) {
   var format = d3.format("." + Math.floor(Math.log(k) / 2 - 2) + "f");
   return (p[1] < 0 ? format(-p[1]) + "°S" : format(p[1]) + "°N") + " "
