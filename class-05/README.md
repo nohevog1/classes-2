@@ -1,7 +1,7 @@
 
 # Class #5
 
-### US Earthquakes -- labeled
+### US Earthquakes with labels
 
 * Demo: https://umbcvis.github.io/classes/class-05
 * Code (updated for D3 v4): https://umbcvis.github.io/classes/tree/master/class-05/index.html
