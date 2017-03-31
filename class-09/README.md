@@ -1,5 +1,9 @@
 
-# Class #9 (Class #8 was spring break)
+# Class #9
+
+(Class #8 was spring break)
+
+* Demo: https://umbcvis.github.io/classes/class-09
 
 Modified from:
 
