@@ -18,5 +18,7 @@ Modified from:
     * detroit --> us.objects.us
 * Extract Oklahoma from us.json
 * Change scale and translate for the projection to Oklahoma
+    * Use ```projection.fitExtent()```
 * Read and plot the USGS Earthquake
     * Use a "g" element that's assured to be on top of the map
+    * Filter earthquakes using ```d3.geoContains()```
