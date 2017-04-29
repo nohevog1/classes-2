@@ -14,4 +14,4 @@ This demo starts with the [Class 5 demo](https://umbcvis.github.io/classes/class
 * Hides the tooltip when your mouse stops dragging the circle
 
 All of these capabilities are added with 4 short snippets of code that are described with "NEW" comments in the
-[source](https://github.com/umbcvis/classes/blob/master/class-13/index.html)
+[source index.html file](https://github.com/umbcvis/classes/blob/master/class-13/index.html)
