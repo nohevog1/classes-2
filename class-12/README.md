@@ -15,4 +15,8 @@ If you look at the code, you'll the two demos differ by only 4 lines:
     // Remove all counties except the county with FIPS code = 003
     svg.selectAll('path.tract')
         .filter(function(d) { return d.properties.COUNTYFP !== "003" })
-        .remove();the only difference between the two demos
+        .remove();
+
+* demo #3: https://umbcvis.github.io/classes/class-12/counties.html
+
+This version of Mike Bostock's [US Counties Topojson](https://bl.ocks.org/mbostock/4122298) has one line that logs the county ID to the developer console on mouseover.  The is a string representing the state FIPS (first two characters) and the county FIPS (characters 3-5).
