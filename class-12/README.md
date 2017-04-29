@@ -8,7 +8,7 @@ The demo reproduces the Bostock's workflow for Maryland, and visualizes results 
 
 For example, this demo uses the census tract FIPS code to remove all counties except the county with FIPS id = 003.
 
-* demo #2: https://umbcvis.github.io/classes/class-12/counties.html
+* demo #2: https://umbcvis.github.io/classes/class-12/county.html
 
 If you look at the code, you'll the two demos differ by only 4 lines:
 
