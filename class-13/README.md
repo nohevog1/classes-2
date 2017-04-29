@@ -13,5 +13,5 @@ This demo starts with the [Class 5 demo](https://umbcvis.github.io/classes/class
 * As you drag the circle, a tooltip to indicates the state that it’s in
 * Hides the tooltip when your mouse stops dragging the circle
 
-All of these capabilities are added with 4 short snippets of code that are described with "NEW" comments in the
-[source index.html file](https://github.com/umbcvis/classes/blob/master/class-13/index.html)
+All of these capabilities are added with 4 short snippets of code that are described with "NEW" comments 
+in heavily annotated [source index.html file](https://github.com/umbcvis/classes/blob/master/class-13/index.html)
