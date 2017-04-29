@@ -19,4 +19,4 @@ If you look at the code, you'll the two demos differ by only 4 lines:
 
 * demo #3: https://umbcvis.github.io/classes/class-12/counties.html
 
-This version of Mike Bostock's [US Counties Topojson](https://bl.ocks.org/mbostock/4122298) has one line that logs the county ID to the developer console on mouseover.  The is a string representing the state FIPS (first two characters) and the county FIPS (characters 3-5).
+This version of Mike Bostock's [US Counties Topojson](https://bl.ocks.org/mbostock/4122298) has one added line. On mouseover, it logs the county ID to the developer console.  The ID is a string representing the state FIPS (first two characters) and the county FIPS (characters 3-5).
