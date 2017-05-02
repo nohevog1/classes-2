@@ -43,10 +43,6 @@ function ready(error, json, population) {
   // Extract an array of features (one tract for each feature)
   tracts = geojson.features;
 
-  console.log('tracts[0]', tracts[0])
-  console.log('population[0]', population[0])
-  console.log('population[1]', population[1])
-
   // Compute population density for each census tract
   tracts.forEach(function(tract, i) {
       var countyfips = tract.properties.COUNTYFP;
@@ -70,6 +66,19 @@ function ready(error, json, population) {
   svg.selectAll('path.tract')
       .filter(function(d) { return d.properties.COUNTYFP !== "003" })
       .remove();
+
+  // Get all tracts in the county with FIPS = '003'
+  county = json.objects.tracts.geometries
+      .filter(function(d) { return d.properties.COUNTYFP === '033'; });
+
+  // Plot the boundry of the county with FIPS = "003"
+  svg.append("path")
+       .datum(topojson.merge(json, county))
+       .attr('class', 'county')
+       .attr('d', path)
+       .style('stroke', '#aaa')
+       .style('stroke-width', '2px')
+       .style('fill', 'none')
 
   addLegend();
 }

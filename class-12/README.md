@@ -10,12 +10,27 @@ For example, this demo uses the census tract FIPS code to remove all counties ex
 
 * demo #2: https://umbcvis.github.io/classes/class-12/county.html
 
-If you look at the code, you'll see that the two demos differ by only 4 lines:
+If you look at the code, you'll see that the two demos differ in 2 sections. This one:
 
     // Remove all counties except the county with FIPS code = 003
     svg.selectAll('path.tract')
         .filter(function(d) { return d.properties.COUNTYFP !== "003" })
         .remove();
+
+and another section that plots a single county boundary merged from its census tracts:
+
+  // Get all tracts in the county with FIPS = '003'
+  county = json.objects.tracts.geometries
+      .filter(function(d) { return d.properties.COUNTYFP === '033'; });
+
+  // Plot the boundry of the county with FIPS = "003"
+  svg.append("path")
+       .datum(topojson.merge(json, county))
+       .attr('class', 'county')
+       .attr('d', path)
+       .style('stroke', '#aaa')
+       .style('stroke-width', '2px')
+       .style('fill', 'none');
 
 * demo #3: https://umbcvis.github.io/classes/class-12/counties.html
 
