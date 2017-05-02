@@ -19,12 +19,12 @@ If you look at the code, you'll see that the two demos differ in 2 sections. Thi
 
 and another section that plots a single county boundary merged from its census tracts:
 
-   // Get all tracts in the county with FIPS = '003'
-   county = json.objects.tracts.geometries
+    // Get all tracts in the county with FIPS = '003'
+    county = json.objects.tracts.geometries
         .filter(function(d) { return d.properties.COUNTYFP === '033'; });
 
-   // Plot the boundry of the county with FIPS = "003"
-   svg.append("path")
+    // Plot the boundry of the county with FIPS = "003"
+    svg.append("path")
         .datum(topojson.merge(json, county))
         .attr('class', 'county')
         .attr('d', path)
