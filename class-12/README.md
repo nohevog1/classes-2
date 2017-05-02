@@ -10,7 +10,7 @@ For example, this demo uses the census tract FIPS code to remove all counties ex
 
 * demo #2: https://umbcvis.github.io/classes/class-12/county.html
 
-If you look at the code, you'll the two demos differ by only 4 lines:
+If you look at the code, you'll see that the two demos differ by only 4 lines:
 
     // Remove all counties except the county with FIPS code = 003
     svg.selectAll('path.tract')
