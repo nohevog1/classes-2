@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>US Counties</title>
+<svg width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>
+
+// This demo modified slightly from https://bl.ocks.org/mbostock/4108203
+
+var svg = d3.select("svg").append("g")
+    .attr('transform', 'scale(4)translate(-700, -100)');
+
+var path = d3.geoPath();
+
+var filename = "https://raw.githubusercontent.com/qaisarmehmood/umbcvis/master/Newyork.population%20Data.csv"
+
+d3.queue()
+    .defer(d3.json,"https://unpkg.com/us-atlas@1/us/10m.json")
+    .defer(d3.csv, filename)
+    .await(ready);
+
+function ready(error, us, csv) {
+  if (error) throw error;
+
+  console.log('here is the csv data:', csv);
+
+  var counties = topojson.feature(us, us.objects.counties).features;
+
+  // Examine one of the county features in the developer console.
+  // The "id" attribute is a 5-digit GEOID (state + county).
+  // See: https://www.census.gov/geo/reference/geoidentifiers.html
+  console.log(counties[0]);
+
+  // Get New York counties
+  newyork = counties.filter(function(d) { return d.id.slice(0,2) === "36"; })
+
+  svg.selectAll('path.county')
+      .data( newyork )
+    .enter().append("path")
+      .attr("d", path)
+      .attr('fill', '#fff')
+      .attr('fill-opacity', '0')
+      .attr("stroke", "#aaa")
+      .attr("stroke-width", 0.5)
+      .on('mouseover', function(d) { console.log(d); });
+
+  svg.append("path")
+      .attr("stroke-width", 0.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+
+  svg.append("path")
+      .attr("d", path(topojson.feature(us, us.objects.nation)));
+}
+
+</script>

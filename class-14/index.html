@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>US Counties</title>
+<svg width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>
+
+// This demo modified slightly from https://bl.ocks.org/mbostock/4108203
+
+var svg = d3.select("svg");
+
+// We won't specify a projection; topojson is already projected
+var path = d3.geoPath();
+
+// Load both the topojson and the population data
+d3.queue()
+    .defer(d3.json,"https://unpkg.com/us-atlas@1/us/10m.json")
+    .defer(d3.csv, "population.json")
+    .await(ready);
+
+function ready(error, us, population) {
+  if (error) throw error;
+
+  // Inspect the population data in the developer console
+  console.log('here is the population data:', population);
+
+  // Convert topojson to an array of GeoJSON counties
+  var counties = topojson.feature(us, us.objects.counties).features;
+
+  // Examine one of the county features in the developer console.
+  // The "id" attribute is a 5-digit GEOID (state + county).
+  // See: https://www.census.gov/geo/reference/geoidentifiers.html
+  console.log(counties[0]);
+
+  svg.selectAll('path.county')
+      .data( counties )
+    .enter().append("path")
+      .attr("d", path)
+      .attr("stroke", "#aaa")
+      .attr("stroke-width", 0.5);
+
+  svg.append("path")
+      .attr("stroke-width", 0.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+
+  svg.append("path")
+      .attr("d", path(topojson.feature(us, us.objects.nation)));
+}
+
+</script>
