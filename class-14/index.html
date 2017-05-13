@@ -31,7 +31,7 @@ function ready(error, us, population) {
   // Examine one of the county features in the developer console.
   // The "id" attribute is a 5-digit GEOID (state + county).
   // See: https://www.census.gov/geo/reference/geoidentifiers.html
-  console.log(counties[0]);
+  console.log('here is one county:', counties[0]);
 
   svg.selectAll('path.county')
       .data( counties )
