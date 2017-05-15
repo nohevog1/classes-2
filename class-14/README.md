@@ -25,7 +25,7 @@
 
 **demo #3:** This map adds a threshold color scale to create a chloropleth map of population density.
 
-* Demo: https://umbcvis.github.io/classes/class-14/index2.html
+* Demo: https://umbcvis.github.io/classes/class-14/index3.html
 * Review topics:
     * data-dependent styling
     * color scales
