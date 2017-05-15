@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <meta charset='utf-8'>
 <title>US Counties</title>
-<svg width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+<svg width="960" height="600" stroke-linejoin="round" stroke-linecap="round">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
 <script>
@@ -42,18 +48,23 @@ function ready(error, us, population) {
       .data( counties )
     .enter().append("path")
       .attr("d", path)
-      .style("d", path)
       .attr("stroke", "#aaa")
       .attr("stroke-width", 0.5);
 
   // Plot the state boundaries
-  // svg.append("path")
-  //     .attr("stroke-width", 0.5)
-  //     .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+  //     topojson.mesh returns a GeoJSON MultiLineString
+  svg.append("path")
+      .attr("stroke-width", 2)
+      .attr("stroke", "#aaa")
+      .attr("d", path(topojson.mesh(us, us.objects.counties, function(a, b) { return a.properties.STATEFP !== b.properties.STATEFP; })));
 
   // Plot the boundary of the US
-//  svg.append("path")
-//      .attr("d", path(topojson.feature(us, us.objects.nation)));
+  //     topojson.merge returns a GeoJSON MultiPolygon
+  svg.append("path")
+      .attr('id', 'test')
+      .attr("d", path(topojson.merge(us, us.objects.counties.geometries)))
+      .attr("fill", 'none');
+      .attr("stroke-width", 1);
 }
 
 </script>

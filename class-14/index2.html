@@ -49,6 +49,11 @@ function ready(error, us, population) {
   console.log('here is the topojson data:', us.objects);
 
   var conus = topojson.merge(us, us.objects.counties.geometries);
+  console.log('conus', conus)
+
+  // Get NY counties as array of GeoJSON objects
+  var newyork = us.objects.counties.geometries.filter(function(d) { return d.properties.STATEFP === '36' })
+  newyork = topojson.feature(us, { type: "GeometryCollection", geometries: newyork });
 
   var fips = d3.set(us.objects.counties.geometries.map(function(d) { return d.properties.STATEFP; })).values();
   console.log('These are the state FIPS', fips);
@@ -59,10 +64,6 @@ function ready(error, us, population) {
     return topojson.merge(us, geoms);
   });
   console.log('here is states[0]', states[0])
-
-  // Get NY counties
-  us.objects.counties.geometries = us.objects.counties.geometries.filter(function(d) { return d.properties.STATEFP === '36' })
-  var newyork = topojson.feature(us, us.objects.counties);
 
   projection.fitExtent([[0, 0],[960, 500]], newyork)
 
