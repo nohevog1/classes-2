@@ -10,6 +10,6 @@ demo #2: This map shows only the counties in New York. It adds an interactive co
 
 * https://umbcvis.github.io/classes/class-14/index2.html
 
-demo #3: This turns demo #2 into a chloropleth map of population density.
+demo #3: This map adds a threshold color scale to create a chloropleth map of population density.
 
 * https://umbcvis.github.io/classes/class-14/index2.html

@@ -107,22 +107,22 @@ function ready(error, us, population) {
       .attr("d", path)
       .attr("class", "county")
       .attr("stroke", "#aaa")
-      .attr("stroke-width", 0.5)
+      .attr("stroke-width", 1)
       .each(function(d) {
         var pop = data.get(d.properties.GEOID);
         var aland = d.properties.ALAND / 2589975.2356; // area in square miles
         d.populationDensity = pop / aland; // population per square mile
       })
       .attr("fill", function(d) { return threshold(d.populationDensity); })
-//      .attr("fill", function(d) { return color(d.populationDensity) })
       .on('mouseover', function(d, i) {
-        console.log('mouseover:', i, d);
+        d3.select(this).attr('stroke-width', 4).raise()
         d3.select(".info").html(d.properties.NAME + " County"
                               + "<br>Population density: "
                              + d3.format(",d")(d.populationDensity))
       })
       .on('mouseout', function(d) {
         d3.select(".info").html("")
+        d3.select(this).attr('stroke-width', 0.5)
       });
 }
 
