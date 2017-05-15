@@ -42,7 +42,7 @@ var path = d3.geoPath()
 // Load the topojson and the population data
 d3.queue()
     .defer(d3.json,"counties.json")
-    .defer(d3.csv, "population.json")
+    .defer(d3.json, "population.json")
     .await(ready);
 
 // Wait for the data to arrive, then begin processing
@@ -58,7 +58,7 @@ function ready(error, us, population) {
   // Get NY counties as array of GeoJSON features
   var newyork = counties.features.filter(function(d) { return d.properties.STATEFP === '36' })
 
-  projection.fitExtent([[0,0],[960, 500]], { type: "FeatureCollection", features: newyork });
+  projection.fitExtent([[10,10],[960 - 20, 500 - 20]], { type: "FeatureCollection", features: newyork });
 
   // Plot the boundary of the US
   svg.append("path")
