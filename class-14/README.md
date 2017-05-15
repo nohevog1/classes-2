@@ -9,3 +9,7 @@ demo #1: This map of counties for the entire US is modified slightly from Mike B
 demo #2: This map shows only the counties in New York. It adds an interactive component that presents data from a second file containing population data. Run your mouse over the counties.
 
 * https://umbcvis.github.io/classes/class-14/index2.html
+
+demo #3: This turns demo #2 into a chloropleth map of population density.
+
+* https://umbcvis.github.io/classes/class-14/index2.html
