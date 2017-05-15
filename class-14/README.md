@@ -7,8 +7,8 @@
 * Demo: https://umbcvis.github.io/classes/class-14/index.html
 * Review topics:
    * Geographies with [d3-geo](https://github.com/d3/d3-geo)
-   * [projections](https://github.com/d3/d3/blob/master/API.md#projections)
-   * [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#paths)
+       * [projections](https://github.com/d3/d3/blob/master/API.md#projections)
+       * [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#paths)
    * [topojson.feature](https://github.com/topojson/topojson-client/blob/master/README.md#feature) converts [TopoJSON](https://github.com/topojson/topojson) to [GeoJSON](http://geojson.org/)
    * [d3-selection](https://github.com/d3/d3/blob/master/API.md#selections-d3-selection)
        * joining data with ```selection.data()```
