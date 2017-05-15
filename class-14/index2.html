@@ -1,56 +1,112 @@
 <!DOCTYPE html>
 <meta charset='utf-8'>
 <title>US Counties</title>
-<svg width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>
+<style>
+body {
+  margin: 0;
+  background-color: #eee;
+}
+
+.info {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+</style>
+<body>
+<div class="info"></div>
+<svg width="960" height="500" fill="none" stroke-linejoin="round" stroke-linecap="round"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
 <script>
 
 // This demo modified slightly from https://bl.ocks.org/mbostock/4108203
+var svg = d3.select("svg").append("g");
 
-var svg = d3.select("svg").append("g")
-    .attr('transform', 'scale(4)translate(-700, -100)');
+var width = svg.node().width, height = svg.node().height;
 
-var path = d3.geoPath();
+// New York central state plane, EPSG: 2829
+// (central meridian = - 76.5833..., latitute of origin = 40)
+var projection = d3.geoTransverseMercator()
+        .rotate([76 + 35 / 60, - 40]);
 
-var filename = "https://raw.githubusercontent.com/qaisarmehmood/umbcvis/master/Newyork.population%20Data.csv"
+var path = d3.geoPath()
+    .projection(projection);
+
+var path = d3.geoPath()
+    .projection(projection);
 
 d3.queue()
-    .defer(d3.json,"https://unpkg.com/us-atlas@1/us/10m.json")
-    .defer(d3.csv, filename)
+    .defer(d3.json,"counties.json")
+    .defer(d3.json,"population.json")
     .await(ready);
 
-function ready(error, us, csv) {
+function ready(error, us, population) {
   if (error) throw error;
 
-  console.log('here is the csv data:', csv);
+  console.log('here is population[0]:', population[0]);
+  console.log('here is population[1]:', population[1]);
+  console.log('here is the topojson data:', us.objects);
 
-  var counties = topojson.feature(us, us.objects.counties).features;
+  var conus = topojson.merge(us, us.objects.counties.geometries);
 
-  // Examine one of the county features in the developer console.
+  var fips = d3.set(us.objects.counties.geometries.map(function(d) { return d.properties.STATEFP; })).values();
+  console.log('These are the state FIPS', fips);
+
+  // Create states by merging counties
+  var states = fips.map(function(fips) {
+    var geoms = us.objects.counties.geometries.filter(function(d) { return d.properties.STATEFP === fips })
+    return topojson.merge(us, geoms);
+  });
+  console.log('here is states[0]', states[0])
+
+  // Get NY counties
+  us.objects.counties.geometries = us.objects.counties.geometries.filter(function(d) { return d.properties.STATEFP === '36' })
+  var newyork = topojson.feature(us, us.objects.counties);
+
+  projection.fitExtent([[0, 0],[960, 500]], newyork)
+
+  // Examine one of the counties in the developer console.
   // The "id" attribute is a 5-digit GEOID (state + county).
   // See: https://www.census.gov/geo/reference/geoidentifiers.html
-  console.log(counties[0]);
+  console.log('here is a new york county:', newyork.features[0]);
 
-  // Get New York counties
-  newyork = counties.filter(function(d) { return d.id.slice(0,2) === "36"; })
-
+  // Draw the counties
   svg.selectAll('path.county')
-      .data( newyork )
+      .data( newyork.features )
     .enter().append("path")
       .attr("d", path)
       .attr('fill', '#fff')
-      .attr('fill-opacity', '0')
       .attr("stroke", "#aaa")
       .attr("stroke-width", 0.5)
-      .on('mouseover', function(d) { console.log(d); });
+      .on('mouseover', function(d, i) {
+        d3.select(this).attr('fill', 'crimson');
+        d3.select(".info").html(d.properties.NAME)
+        console.log('mouseover:', i, d);
+      })
+      .on('mouseout', function(d) {
+        d3.select(this).attr('fill', '#fff');
+        d3.select(".info").html("")
+      });
 
-  svg.append("path")
-      .attr("stroke-width", 0.5)
-      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+  // Draw the states
+  svg.append("g")
+      .attr('fill-opacity', 0)
+      .attr("stroke", "#000")
+      .attr("stroke-width", 1)
+      .attr("pointer-events", "none")
+    .selectAll('path.state')
+      .data( states )
+    .enter().append("path")
+      .attr("d", path)
 
+  // Draw the continental US
   svg.append("path")
-      .attr("d", path(topojson.feature(us, us.objects.nation)));
+      .attr("d", path(conus))
+      .attr("fill", "none")
+      .attr("stroke", "#000")
+      .attr("stroke-width", 2)
+      .attr("pointer-events", "none");
 }
 
 </script>

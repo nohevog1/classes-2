@@ -10,42 +10,50 @@
 
 var svg = d3.select("svg");
 
-// We won't specify a projection; topojson is already projected
-var path = d3.geoPath();
+var projection = d3.geoAlbersUsa();
 
-// Load both the topojson and the population data
+var path = d3.geoPath()
+    .projection(projection);
+
+// Load the topojson and the population data
 d3.queue()
-    .defer(d3.json,"https://unpkg.com/us-atlas@1/us/10m.json")
+    .defer(d3.json,"counties.json")
     .defer(d3.csv, "population.json")
     .await(ready);
 
+// Wait for the data to arrive, then begin processing
 function ready(error, us, population) {
   if (error) throw error;
 
   // Inspect the population data in the developer console
   console.log('here is the population data:', population);
 
-  // Convert topojson to an array of GeoJSON counties
+  // Convert the topojson to an array of GeoJSON counties
   var counties = topojson.feature(us, us.objects.counties).features;
 
   // Examine one of the county features in the developer console.
   // The "id" attribute is a 5-digit GEOID (state + county).
+  // There's no other metadata in the topojson.
   // See: https://www.census.gov/geo/reference/geoidentifiers.html
   console.log('here is one county:', counties[0]);
 
+  // Plot fill the individual counties
   svg.selectAll('path.county')
       .data( counties )
     .enter().append("path")
       .attr("d", path)
+      .style("d", path)
       .attr("stroke", "#aaa")
       .attr("stroke-width", 0.5);
 
-  svg.append("path")
-      .attr("stroke-width", 0.5)
-      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+  // Plot the state boundaries
+  // svg.append("path")
+  //     .attr("stroke-width", 0.5)
+  //     .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
 
-  svg.append("path")
-      .attr("d", path(topojson.feature(us, us.objects.nation)));
+  // Plot the boundary of the US
+//  svg.append("path")
+//      .attr("d", path(topojson.feature(us, us.objects.nation)));
 }
 
 </script>
