@@ -12,7 +12,7 @@
    * [topojson.feature](https://github.com/topojson/topojson-client/blob/master/README.md#feature) converts [TopoJSON](https://github.com/topojson/topojson) to [GeoJSON](http://geojson.org/)
    * [d3-selection](https://github.com/d3/d3/blob/master/API.md#selections-d3-selection)
        * joining data with ```selection.data()```
-       * get the enter selection (i.e., placeholders for data with no element) with ```selection.enter()``` 
+       * get the enter selection (i.e., placeholders for data without an element) with ```selection.enter()``` 
        * append an element with ```selection.append()```
 
 **demo #2:** This map shows only the counties in New York. It adds an interactive component that presents data from a second file containing population data. Run your mouse over the counties.
