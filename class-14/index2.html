@@ -49,14 +49,22 @@ d3.queue()
 function ready(error, us, population) {
   if (error) throw error;
 
-  // Inspect the population data in the developer console
-  console.log('here is the population data:', population);
+  // Make the population data easy to query by FIPS code
+  var data = d3.map();
+  population.forEach(function(d, i) {
+    if (i === 0) return;  // skip the first line in the population data
+    data.set(d[1] + d[2], +d[0]);
+  });
 
   // Convert the topojson to an array of GeoJSON counties
   var counties = topojson.feature(us, us.objects.counties);
 
   // Get NY counties as array of GeoJSON features
   var newyork = counties.features.filter(function(d) { return d.properties.STATEFP === '36' })
+
+  // Inspect the data in the developer console
+  console.log('here is the population data:', population[0], population[1]);
+  console.log('here is one of the counties:', newyork[0]);
 
   projection.fitExtent([[10,10],[960 - 20, 500 - 20]], { type: "FeatureCollection", features: newyork });
 
@@ -93,9 +101,11 @@ function ready(error, us, population) {
       .attr("stroke", "#aaa")
       .attr("stroke-width", 0.5)
       .on('mouseover', function(d, i) {
-        d3.select(this).attr('fill', 'crimson');
-        d3.select(".info").html(d.properties.NAME)
         console.log('mouseover:', i, d);
+        d3.select(this).attr('fill', 'crimson');
+        d3.select(".info").html(d.properties.NAME + " County"
+                              + "<br>Population: "
+                             + d3.format(",d")(data.get(d.properties.GEOID)))
       })
       .on('mouseout', function(d) {
         d3.select(this).attr('fill', '#fff');
