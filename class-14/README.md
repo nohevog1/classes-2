@@ -2,7 +2,7 @@
 # Mapping review
 
 
-demo #1: shows how to create a map of counties for the entire US.  This is a modified slightly from Mike Bostock's [U.S. Topojson](https://bl.ocks.org/mbostock/410820) block. The data from census.gov have been prepared differently for this demo.  This demo also loads some population data.
+demo #1: shows how to create a map of counties for the entire US.  This is modified slightly from Mike Bostock's [U.S. Topojson](https://bl.ocks.org/mbostock/410820) block, and the data from census.gov have been prepared differently.
 
 * https://umbcvis.github.io/classes/class-14/index.html
 

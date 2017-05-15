@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<meta charset='utf-8'>
+<meta charset'utf-8'>
 <title>US Counties</title>
 <svg width="960" height="600" stroke="#000" stroke-linejoin="round" stroke-linecap="round">
   <defs>
@@ -12,7 +12,7 @@
 <script src="https://unpkg.com/topojson-client@3"></script>
 <script>
 
-// This demo modified slightly from https://bl.ocks.org/mbostock/4108203
+// This demo modified from https://bl.ocks.org/mbostock/4108203
 
 var svg = d3.select("svg");
 
@@ -23,24 +23,12 @@ var projection = d3.geoAlbersUsa();
 var path = d3.geoPath()
     .projection(projection);
 
-// Load the topojson and the population data
-d3.queue()
-    .defer(d3.json,"counties.json")
-    .defer(d3.csv, "population.json")
-    .await(ready);
-
 // Wait for the data to arrive, then begin processing
-function ready(error, us, population) {
+d3.json("counties.json", function(error, us) {
   if (error) throw error;
-
-  // Inspect the population data in the developer console
-  console.log('here is the population data:', population);
 
   // Convert the topojson to an array of GeoJSON counties
   var counties = topojson.feature(us, us.objects.counties).features;
-
-  // Examine one of the county features in the developer console.
-  console.log('here is one county:', counties[0]);
 
   // Plot the boundary of the US
   svg.append("path")
