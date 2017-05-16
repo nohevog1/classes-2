@@ -30,3 +30,7 @@
     * data-dependent styling
     * color scales
     * event-driven styling
+
+**demo #4:** This version has a pie chart that updates when you mouse over a county
+
+* Demo: https://umbcvis.github.io/classes/class-14/index4.html
