@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset='utf-8'>
-<title>New York Counties</title>
+<title>NY Counties 4</title>
 <style>
 body {
   margin: 0;
@@ -9,8 +9,8 @@ body {
 
 .info {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 20px;
+  left: 260px;
 }
 </style>
 <div class="info"></div>
@@ -26,13 +26,9 @@ body {
 <script src="//d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script>
 
-// This demo modified slightly from https://bl.ocks.org/mbostock/4108203
-
 var svg = d3.select("svg");
 
 var defs = svg.select("defs");
-
-var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // New York central state plane, EPSG: 2829
 // (central meridian = - 76.5833..., latitute of origin = 40)
@@ -46,8 +42,9 @@ var threshold = d3.scaleThreshold()
     .domain([1, 10, 50, 200, 500, 2000, 8000, 30000])
     .range(d3.schemeOrRd[9]);
 
-// Configure pie chart
-var radius = 50;
+// Configure the pie chart
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+var radius = 80;
 var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.value; });
@@ -56,8 +53,13 @@ var arcPath = d3.arc()
     .outerRadius(radius)
     .innerRadius(0);
 
-var arc = svg.append("g")
-    .attr('transform', 'translate(' + [radius + 30, radius + 30] + ')')
+var label = d3.arc()
+    .outerRadius(radius - 40)
+    .innerRadius(radius - 40);
+
+svg.append("g")
+    .attr('id', "pie")
+    .attr('transform', 'translate(' + [radius + 60, radius + 40] + ')')
 
 // Load the topojson and the population data
 d3.queue()
@@ -88,15 +90,12 @@ function ready(error, us, population) {
     var pop = data.get(d.properties.GEOID);
     var aland = d.properties.ALAND / 2589975.2356; // area in square miles
     d.populationDensity = pop / aland; // population per square mile
+    d.population = pop; // population
+    d.land = aland; // land aread (square miles)
     pieData.set(d.properties.GEOID, [{ key: "population", value: pop / 100 },
                                      { key: "land", value: aland },
                                      { key: "density", value: d.populationDensity }] )
-    console.log('new york county:', i, pieData.get(d.properties.GEOID) );
   })
-
-  // Inspect the data in the developer console
-  console.log('here is the population data:', population[0], population[1]);
-  console.log('here is one of the counties:', newyork[0]);
 
   projection.fitExtent([[10,10],[960 - 20, 500 - 20]], { type: "FeatureCollection", features: newyork });
 
@@ -135,40 +134,34 @@ function ready(error, us, population) {
       .attr("stroke-width", 1)
       .attr("fill", function(d) { return threshold(d.populationDensity); })
       .on('mouseover', function(d, i) {
-        var pd = pieData.get(d.properties.GEOID);
-        updatePie(pd)
-        console.log(pd[0].value, pd[1].value, pd[2].value)
+        addPie( pieData.get(d.properties.GEOID) );
         d3.select(this).attr('stroke-width', 4).raise()
         d3.select(".info").html(d.properties.NAME + " County"
-                              + "<br>Population density: "
-                             + d3.format(",d")(d.populationDensity))
+            + "<br>Population Density: " + d3.format(",d")(d.populationDensity)
+            + "<br>Population: " + d3.format(",d")(d.population)
+            + "<br>Land (square miles): " + d3.format(",d")(d.land))
       })
       .on('mouseout', function(d) {
         d3.select(".info").html("")
         d3.select(this).attr('stroke-width', 0.5)
+        d3.select("#pie").selectAll(".arc").remove();
       });
-
-  addPie(pieData.get(newyork[0].properties.GEOID));
 }
 
 function addPie(data) {
-  console.log(data)
-  arc = arc.selectAll(".arc")
-      .data(pie(data))
+  var arc = d3.select("#pie").selectAll(".arc")
+      .data( pie(data) )
     .enter().append("g")
-      .attr("class", "arc");
+      .attr("class", "arc")
 
   arc.append("path")
+      .attr("fill", function(d) { return color(d.data.key); })
       .attr("d", arcPath)
-      .attr("fill", function(d) { return color(d.data.key); });
+
+  arc.append("text")
+      .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+      .attr("dy", "0.35em")
+      .text(function(d) { return d.data.key; })
+      .raise();
 }
-
-function updatePie(data) {
-  d3.selectAll(".arc")
-      .data(pie(data))
-
-  arc.select("path")
-      .attr("d", arcPath)
-}
-
 </script>
