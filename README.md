@@ -80,3 +80,7 @@ A collection of demos for each class
     * [d3.event](https://github.com/d3/d3-selection#event) -- The current event, if any
     * [d3.mouse](https://github.com/d3/d3-selection#mouse) -- X & Y coordinates of the current event
     * [projection.invert](https://github.com/d3/d3/blob/master/API.md#projections) -- Unproject a point (to a sphere)
+* [Class #14](https://github.com/umbcvis/classes/tree/master/class-14) -- Mapping review
+
+* [Final exam template](http://bl.ocks.org/pbogden/5c09aa450bc9448cf65f3fcd52034113)
+
